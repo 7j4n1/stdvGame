@@ -22,7 +22,7 @@
             <ul class="flex">
                 <li class="mr-4"><a href="{{ route('home') }}" class="text-white font-medium">Home</a></li>
                 <li class="mr-4"><a href="{{ route('menu') }}" class="text-white font-medium underline decoration-4 decoration-yellow-500">Menu</a></li>
-                <li class="mr-4 ml-10"><a href="{{ route('menu') }}" class="bg-[#FF0] text-black px-4 py-2 rounded-full font-medium">Launch Game</a></li>
+                <li class="mr-4 ml-10 animate-bounce"><a href="{{ route('menu') }}" class="bg-[#FF0] text-black px-4 py-2 rounded-full font-bold">Launch Game</a></li>
             </ul>
         </nav>
         <div class="container mx-auto flex h-[60%] text-white gap-x-4 gap-y-4">
@@ -31,11 +31,11 @@
                     <!-- <div class="content-container"> -->
                         <!-- <h1 style="line-height: 68px; font-family: 'Lekton'; font-size:64px;">Choose Your <strong>Hero</strong></h1> -->
                         <a href="{{ route('menu') }}" class="bg-[#FF0] flex text-black font-[900] justify-center w-[30%] py-2 rounded-full inline-flex items-center gap-x-2">
-                            Launch <img src="{{ url('/images/icons8_Circled_Play.svg') }}" class="" height="16" width="24">
+                            Launch <img src="{{ url('/images/icons8_Circled_Play.svg') }}" class="animate-bounce" height="16" width="24">
                         </a>
-                        <a href="{{ route('menu') }}" class="bg-[#FF0] text-black flex justify-center font-[900] w-[30%] py-2 px-8 rounded-full">Leader Boards</a>
-                        <a href="{{ route('menu') }}" class="bg-[#FF0] text-black flex justify-center font-[900] w-[30%] py-2 px-8 rounded-full">About Game</a>
-                        <a href="{{ route('menu') }}" class="bg-[#FF0] flex text-black justify-center font-[900] w-[30%] py-2 px-8 rounded-full">Exit</a>
+                        <a href="{{ route('menu') }}" class="border hover:bg-[#FF0] text-white hover:text-black hover:border-none flex justify-center font-[900] w-[30%] py-2 px-8 rounded-full">Leader Boards</a>
+                        <a href="#" class="border hover:bg-[#FF0] text-white hover:text-black hover:border-none flex justify-center font-[900] w-[30%] py-2 px-8 rounded-full">About Game</a>
+                        <a href="{{ route('home') }}" class="border hover:bg-[#FF0] flex text-white hover:text-black hover:border-none justify-center font-[900] w-[30%] py-2 px-8 rounded-full">Exit</a>
                     <!-- </div> -->
                 </div>
             </div>

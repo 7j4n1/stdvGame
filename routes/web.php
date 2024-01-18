@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GridController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/menu', function () {
     return view('menu');
 })->name('menu');
+
+Route::get('/grid', [GridController::class, 'index'])->name('grid');
