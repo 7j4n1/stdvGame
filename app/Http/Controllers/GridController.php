@@ -7,13 +7,20 @@ use Illuminate\Http\Request;
 class GridController extends Controller
 {
     
+    /**
+     * Display the grid view.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $shapesNumber = $this->generateShapes();
+
         return view('grid', ['shapesNumber' => $shapesNumber[0], 'Shapes' => $shapesNumber[1]]);
     }
 
     private function generateShapes(){
+        
         $totalSum = 42;
         $numVariables = 4;
 

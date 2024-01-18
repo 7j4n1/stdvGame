@@ -10,7 +10,15 @@
 
     <script src="{{ asset('js/tailwind.js') }}"></script>
 </head>
-<body class="bg-cover bg-center" style="background-size: no-repeat; background-image: linear-gradient(to bottom, rgba(00, 0, 0, 1.2), rgba(0, 14, 0, 0.2)), url('/images/block.jpg');">
+<style>
+    body {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.2), rgba(0, 14, 0, 0.2)), url('/images/block.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+<body>
     <div class="w-100 h-screen ">
         <nav class="h-[100px] flex items-center justify-between">
             <div class="flex items-center">
@@ -51,7 +59,6 @@
                                 </div>
                             @elseif ($value == 'block')
                             <!-- Adjust the img to fit in the div parent fully -->
-                            
                                 <div class="bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center">
                                     <img src="{{ url('/images/block.jpg') }}" height="16" width="16" style="object-fit: cover;">
                                 </div>
