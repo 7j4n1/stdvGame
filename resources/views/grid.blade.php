@@ -72,7 +72,7 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <div class="space-x-5" style="width: 100%; height: 300px;">
+                    <div class="space-x-5" style="width: 100%; height: 350px;">
                         <!--  a Strong Bold text -->
                         <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 1</div>
                         <!-- 4 normal text with an inline textboxes and small inline images on each row-->
@@ -96,7 +96,10 @@
                             <input type="text" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
                             <img src="{{ url('/images/grids/typcn_tick.svg') }}" height="16" width="16" style="object-fit: cover;">
                         </div>
-
+                        <!-- submit button -->
+                        <div class="flex justify-center mt-10">
+                            <button class="bg-[#FF0] text-black w-[30%] py-2 px-8 rounded-full font-bold" type="submit">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
