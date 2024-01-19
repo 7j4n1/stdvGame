@@ -12,14 +12,14 @@
 </head>
 <style>
     body {
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.2), rgba(0, 14, 0, 0.2)), url('/images/block.jpg');
+        background-image: linear-gradient(90deg, rgba(0,0,0,0.7287289915966386) 0%, rgba(0,0,0,0.7259278711484594) 35%, rgba(0,0,0,0.7343312324929971) 100%), url('/images/block.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
 </style>
 <body>
-    <div class="w-100 h-screen ">
+    <div class="w-[100%] h-screen ">
         <nav class="h-[100px] flex items-center justify-between">
             <div class="flex items-center">
                 <div class="h-10 w-10 mr-2 ml-20 bg-[url('/images/466292e1e5db889914591b2d89f61e44.png')] bg-cover border rounded-full border-white">
@@ -32,38 +32,49 @@
                 <li class="mr-4 ml-5"><span class="bg-[#FF0] text-black px-4 py-2 rounded-full font-bold"><span id="ctTimer">80</span> seconds</span></li>
             </ul>
         </nav>
-        <div class="container mx-auto flex items-center flex-col h-[60%] text-white">
-            <div class="w-[50%]">
-                <div class="flex flex-col items-center justify-center h-[100%] gap-y-4">
+        <div class="mx-auto flex text-white items-center w-100 justify-between h-[80%]">
+            <div class=" w-fit ml-auto mr-20 items-center">
+                <div class="flex h-[100%]">
                     <!-- Generate Shapes Grid 7 x 7 -->
-                    <div class="grid grid-cols-7 gap-4">
+                    <div class="grid grid-cols-7 gap-4 gap-x-6">
                         @foreach ($Shapes as $key => $value)
                             @if ($value == 'circle')
                                 <!-- <div class="bg-[#D9D9D9] rounded-full h-8 w-8 flex items-center justify-center">
                                     <img src="{{ url('/images/grids/ellip2.png') }}" height="16" width="16" style="object-fit: cover;">
                                 </div> -->
-                                <div class="bg-[#D9D9D9] rounded-full h-8 w-8 flex items-center justify-center">
+                                <div class="animate-bounce bg-[#D9D9D9] rounded-full h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
                                     <img src="{{ url('/images/grids/ellip2.png') }}" height="16" width="16" style="object-fit: cover;">
                                 </div>
                             @elseif ($value == 'square')
-                                <div class="bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center">
+                                <div class="animate-spin bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
                                     <img src="{{ url('/images/grids/rect.png') }}" height="16" width="16" style="object-fit: cover;">
                                 </div>
                             @elseif ($value == 'triangle')
-                                <div class="bg-[#D9D9D9] rounded-t-lg h-8 w-8 flex items-center justify-center">
+                                <div class="animate-bounce bg-[#D9D9D9] rounded-t-lg h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
                                     <img src="{{ url('/images/grids/poly.png') }}" height="16" width="16" style="object-fit: cover;">
                                 </div>
                             @elseif ($value == 'star')
-                                <div class="bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center">
+                                <div class="animate-bounce bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
                                     <img src="{{ url('/images/grids/star.png') }}" height="16" width="16" style="object-fit: cover;">
                                 </div>
                             @elseif ($value == 'block')
                             <!-- Adjust the img to fit in the div parent fully -->
-                                <div class="bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center">
+                                <div class="bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
                                     <img src="{{ url('/images/block.jpg') }}" height="16" width="16" style="object-fit: cover;">
                                 </div>
                             @endif
                         @endforeach
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
+                <div class="flex h-[100%]">
+                    <!-- Generate a large div box container without any content -->
+                    <div class="" style="width: 100%; height: 300px;">
+
+                    </div>
                 </div>
             </div>
         </div>

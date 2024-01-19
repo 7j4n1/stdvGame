@@ -12,7 +12,7 @@
 </head>
 <body class="h-screen">
     
-    <div class="w-100 h-screen bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(00, 0, 0, 1.2), rgba(0, 14, 0, 0.2)), url('/images/1172c22161aceb547050546ff5b59d47.png');">
+    <div class="w-100 h-screen bg-cover bg-center" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.7287289915966386) 0%, rgba(0,0,0,0.7259278711484594) 35%, rgba(0,0,0,0.7343312324929971) 100%), url('/images/1172c22161aceb547050546ff5b59d47.png');">
         <nav class="h-[100px] bg-black flex items-center justify-between">
             <div class="flex items-center">
                 <div class="h-10 w-10 mr-2 ml-20 bg-[url('/images/466292e1e5db889914591b2d89f61e44.png')] bg-cover border rounded-full border-white">
@@ -23,7 +23,7 @@
             <ul class="flex">
                 <li class="mr-4"><a href="#" class="text-white font-medium underline decoration-4 decoration-yellow-500">Home</a></li>
                 <li class="mr-4"><a href="#" class="text-white font-medium">Games</a></li>
-                <li class="mr-4 ml-10"><a href="{{ route('menu') }}" class="bg-[#FF0] text-black px-4 py-2 rounded-full font-medium">Launch Game</a></li>
+                <li class="mr-4 ml-10"><a href="{{ route('grid') }}" class="bg-[#FF0] text-black px-4 py-2 rounded-full font-medium">Launch Game</a></li>
             </ul>
         </nav>
         <div class="container mx-auto flex flex-col items-center justify-center h-[60%] text-white gap-y-20">

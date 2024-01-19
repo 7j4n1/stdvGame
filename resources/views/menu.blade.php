@@ -10,7 +10,7 @@
 
     <script src="{{ asset('js/tailwind.js') }}"></script>
 </head>
-<body class="h-screen bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(00, 0, 0, 1.2), rgba(0, 14, 0, 0.2)), url('/images/2b9a9cf39811e07faf0ff30005aaf766.png');">
+<body class="h-screen bg-cover bg-center" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.7287289915966386) 0%, rgba(0,0,0,0.7259278711484594) 35%, rgba(0,0,0,0.7343312324929971) 100%), url('/images/2b9a9cf39811e07faf0ff30005aaf766.png');">
     <div class="w-100 h-screen " >
         <nav class="h-[100px] flex items-center justify-between">
             <div class="flex items-center">
@@ -22,7 +22,7 @@
             <ul class="flex">
                 <li class="mr-4"><a href="{{ route('home') }}" class="text-white font-medium">Home</a></li>
                 <li class="mr-4"><a href="{{ route('menu') }}" class="text-white font-medium underline decoration-4 decoration-yellow-500">Menu</a></li>
-                <li class="mr-4 ml-10 animate-bounce"><a href="{{ route('menu') }}" class="bg-[#FF0] text-black px-4 py-2 rounded-full font-bold">Launch Game</a></li>
+                <li class="mr-4 ml-10 animate-bounce"><a href="{{ route('grid') }}" class="bg-[#FF0] text-black px-4 py-2 rounded-full font-bold">Launch Game</a></li>
             </ul>
         </nav>
         <div class="container mx-auto flex h-[60%] text-white gap-x-4 gap-y-4">
@@ -30,7 +30,7 @@
                 <div class="flex flex-col items-center justify-center h-[100%] gap-y-8">
                     <!-- <div class="content-container"> -->
                         <!-- <h1 style="line-height: 68px; font-family: 'Lekton'; font-size:64px;">Choose Your <strong>Hero</strong></h1> -->
-                        <a href="{{ route('menu') }}" class="bg-[#FF0] flex text-black font-[900] justify-center w-[30%] py-2 rounded-full inline-flex items-center gap-x-2">
+                        <a href="{{ route('grid') }}" class="bg-[#FF0] flex text-black font-[900] justify-center w-[30%] py-2 rounded-full inline-flex items-center gap-x-2">
                             Launch <img src="{{ url('/images/icons8_Circled_Play.svg') }}" class="animate-bounce" height="16" width="24">
                         </a>
                         <a href="{{ route('menu') }}" class="border hover:bg-[#FF0] text-white hover:text-black hover:border-none flex justify-center font-[900] w-[30%] py-2 px-8 rounded-full">Leader Boards</a>
