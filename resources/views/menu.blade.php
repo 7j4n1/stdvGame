@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StdvGame - Menu Page</title>
-    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
+    <link href="{{ url('css/tailwind.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lekton' rel='stylesheet'>
 
 
-    <script src="{{ asset('js/tailwind.js') }}"></script>
+    <script src="{{ url('js/tailwind.js') }}"></script>
 </head>
 <body class="h-screen bg-cover bg-center" style="background-image: linear-gradient(90deg, rgba(0,0,0,0.7287289915966386) 0%, rgba(0,0,0,0.7259278711484594) 35%, rgba(0,0,0,0.7343312324929971) 100%), url('/images/2b9a9cf39811e07faf0ff30005aaf766.png');">
     <div class="w-100 h-screen " >

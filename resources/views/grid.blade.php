@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StdvGame - Mission</title>
-    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
+    <link href="{{ url('css/tailwind.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lekton' rel='stylesheet'>
 
 
-    <script src="{{ asset('js/tailwind.js') }}"></script>
+    <script src="{{ url('js/tailwind.js') }}"></script>
 </head>
 <style>
     body {
