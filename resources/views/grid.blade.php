@@ -19,11 +19,11 @@
     }
 
     .yellow {
-        color: #FF0;
+        background-color: #FF0 !important;
     }
 
     .disabled {
-        background-color: #131313;
+        background-color: #131313 !important;
     }
 </style>
 <body>
@@ -110,7 +110,7 @@
                         </div>
                         <!-- submit button -->
                         <div class="flex justify-center mt-10">
-                            <button class="bg-[#FF0] text-black w-[30%] py-2 px-8 rounded-full font-bold" id="btnSubmit" type="submit">Submit</button>
+                            <button class="yellow text-black w-[30%] py-2 px-8 rounded-full font-bold" id="btnSubmit" type="submit">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -166,6 +166,7 @@
         document.getElementById("btnSubmit").disabled = true;
         // apply tailwindcss class to the submit button when disabled to change the background color
         document.getElementById("btnSubmit").classList.add("disabled");
+        document.getElementById("btnSubmit").classList.remove("yellow");
 
 
         // By default the tick images are hidden
