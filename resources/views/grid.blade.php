@@ -72,7 +72,30 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <div class="" style="width: 100%; height: 300px;">
+                    <div class="space-x-5" style="width: 100%; height: 300px;">
+                        <!--  a Strong Bold text -->
+                        <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 1</div>
+                        <!-- 4 normal text with an inline textboxes and small inline images on each row-->
+                        <div class="inline-flex items-center space-x-5 text-xl text-center justify-evenly mt-2 text-[#FFF]">
+                            <p>How many squares are in the boxes ?</p>
+                            <input type="text" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                            <img src="{{ url('/images/grids/typcn_tick.svg') }}" height="16" width="16" style="object-fit: cover;">
+                        </div>
+                        <div class="inline-flex items-center space-x-5 justify-center text-xl justify-evenly text-center mt-2 text-[#FFF]">
+                            <p>How many circles are in the boxes ?</p>
+                            <input type="text" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                            <img src="{{ url('/images/grids/typcn_tick.svg') }}" height="16" width="16" style="object-fit: cover;">
+                        </div>
+                        <div class="inline-flex items-center space-x-5 text-xl justify-evenly text-center mt-2 text-[#FFF]">
+                            <p>How many triangles are in the boxes ?</p>
+                            <input type="text" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                            <img src="{{ url('/images/grids/typcn_tick.svg') }}" height="16" width="16" style="object-fit: cover;">
+                        </div>
+                        <div class="inline-flex items-center space-x-5 text-xl justify-evenly text-center mt-2 text-[#FFF]">
+                            <p>How many stars are in the boxes ?</p>
+                            <input type="text" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                            <img src="{{ url('/images/grids/typcn_tick.svg') }}" height="16" width="16" style="object-fit: cover;">
+                        </div>
 
                     </div>
                 </div>
