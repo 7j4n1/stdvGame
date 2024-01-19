@@ -22,4 +22,4 @@ Route::get('/menu', function () {
     return view('menu');
 })->name('menu');
 
-Route::get('/grid', [GridController::class, 'index'])->name('grid');
+Route::get('/start-game', [GridController::class, 'index'])->name('grid');
