@@ -20,10 +20,12 @@
 
     .yellow {
         background-color: #FF0 !important;
+        color: #000 !important;
     }
 
     .disabled {
         background-color: #131313 !important;
+        color: #FFF !important;
     }
 </style>
 <body>
@@ -80,7 +82,9 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <div class="space-x-5" style="width: 100%; height: 350px;">
+                    <form action="{{ route('grid') }}" method="get" class="w-[100%] h-[100%] flex items-center justify-center">
+                        @csrf
+                    <div class="space-x-5" style="width: 100%; ">
                         <!--  a Strong Bold text -->
                         <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 1</div>
                         <!-- 4 normal text with an inline textboxes and small inline images on each row-->
@@ -109,10 +113,11 @@
                             <img src="{{ url('/images/grids/miss.svg') }}" id="starImg2" height="16" width="16" style="object-fit: cover;">
                         </div>
                         <!-- submit button -->
-                        <div class="flex justify-center mt-10">
+                        <div class="flex justify-center mt-10 mb-5">
                             <button class="yellow text-black w-[30%] py-2 px-8 rounded-full font-bold" id="btnSubmit" type="submit">Submit</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
