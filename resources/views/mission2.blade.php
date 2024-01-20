@@ -82,7 +82,7 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <form action="{{ route('grid2', ['Shapes', 'shapesNumber']) }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
+                    <form action="{{ route('grid2') }}" method="get" class="w-[100%] h-[100%] flex items-center justify-center">
                         @csrf
                         <div class="space-x-5" style="width: 100%; ">
                             <!--  a Strong Bold text -->

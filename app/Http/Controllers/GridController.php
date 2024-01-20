@@ -19,6 +19,11 @@ class GridController extends Controller
         return view('grid', ['shapesNumber' => $shapesNumber[0], 'Shapes' => $shapesNumber[1]]);
     }
 
+    public function mission2($shapesNumber, $Shapes)
+    {
+        return view('mission2', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes]);
+    }
+
     private function generateShapes(){
         
         $totalSum = 42;
