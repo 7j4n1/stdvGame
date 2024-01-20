@@ -6,6 +6,7 @@
     <title>StdvGame - Mission</title>
     <link href="{{ url('css/tailwind.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lekton' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
 
 
     <script src="{{ url('js/tailwind.js') }}"></script>
@@ -69,9 +70,16 @@
                                 </div>
                             @elseif ($value == 'block')
                             <!-- Adjust the img to fit in the div parent fully -->
-                                <div class="bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
-                                    <img src="{{ url('/images/block.jpg') }}" height="16" width="16" style="object-fit: cover;">
-                                </div>
+                                @if ($key == 3)
+                                    <div class=" rounded h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
+                                        <img src="{{ url('/images/grids/typcn_tick.svg') }}" height="16" width="16" style="object-fit: cover;">
+                                    </div>
+                                @else
+                                    <div class="bg-[#D9D9D9] rounded h-8 w-8 flex items-center justify-center" style="border: 2px solid #9237E3">
+                                        <img src="{{ url('/images/block.jpg') }}" height="16" width="16" style="object-fit: cover;">
+                                    </div>
+                                @endif
+                                
                             @endif
                         @endforeach
                     </div>
@@ -87,30 +95,24 @@
                         <div class="space-x-5" style="width: 100%; ">
                             <!--  a Strong Bold text -->
                             <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 2</div>
+                            <!--  a normal text -->
+                            <div class="text-xl text-center mt-2 text-[#FFF]">Calculate the mean of the previous shapes</div>
+                            <div class="text-l text-center mt-2 text-[#FFF]">(remember: mean in max of 2 d.p [e.g 0.00])</div>
                             <!-- 4 normal text with an inline textboxes and small inline images on each row-->
-                            <div class="inline-flex items-center space-x-5 text-xl text-center justify-evenly mt-2 text-[#FFF]">
-                                <p>How many squares are in the boxes ?</p>
-                                <input type="text" id="square" name="square" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
-                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="squareImg" height="16" width="16" style="object-fit: cover;">
-                                <img src="{{ url('/images/grids/miss.svg') }}" id="squareImg2" height="16" width="16" style="object-fit: cover;">
+                            <div class="inline-flex items-center space-x-3 text-xl text-center justify-evenly mt-2 text-[#FFF]">
+                                <input type="text" id="square" name="square" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
+                                <input type="text" id="circle" name="circle" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
+                                <input type="text" id="triangle" name="triangle" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
+                                <input type="text" id="star" name="star" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
+                                <input type="text" id="total" name="total" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;" disabled>
                             </div>
+                            <hr style="width: 85%; border: 2px solid #fff" />
                             <div class="inline-flex items-center space-x-5 justify-center text-xl justify-evenly text-center mt-2 text-[#FFF]">
-                                <p>How many circles are in the boxes ?</p>
-                                <input type="text" id="circle" name="circle" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
-                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="circleImg" height="16" width="16" style="object-fit: cover;">
-                                <img src="{{ url('/images/grids/miss.svg') }}" id="circleImg2" height="16" width="16" style="object-fit: cover;">
-                            </div>
-                            <div class="inline-flex items-center space-x-5 text-xl justify-evenly text-center mt-2 text-[#FFF]">
-                                <p>How many triangles are in the boxes ?</p>
-                                <input type="text" id="triangle" name="triangle" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
-                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="triangleImg" height="16" width="16" style="object-fit: cover;">
-                                <img src="{{ url('/images/grids/miss.svg') }}" id="triangleImg2" height="16" width="16" style="object-fit: cover;">
-                            </div>
-                            <div class="inline-flex items-center space-x-5 text-xl justify-evenly text-center mt-2 text-[#FFF]">
-                                <p>How many stars are in the boxes ?</p>
-                                <input type="text" id="star" name="star" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
-                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="starImg" height="16" width="16" style="object-fit: cover;">
-                                <img src="{{ url('/images/grids/miss.svg') }}" id="starImg2" height="16" width="16" style="object-fit: cover;">
+                                
                             </div>
                             <!-- submit button -->
                             <div class="flex justify-center mt-10 mb-5">
