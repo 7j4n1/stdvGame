@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class GridController extends Controller
 {
@@ -16,11 +17,16 @@ class GridController extends Controller
     {
         $shapesNumber = $this->generateShapes();
 
+        Session::start();
+
         return view('grid', ['shapesNumber' => $shapesNumber[0], 'Shapes' => $shapesNumber[1]]);
     }
 
-    public function mission2($shapesNumber, $Shapes)
+    public function mission2(Request $request)
     {
+        Session::put('shapesNumber', $request->shapesNumber);
+        $shapesNumber = json_decode($request->shapesNumber, true);
+        $Shapes = json_decode($request->Shapes, true);
         return view('mission2', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes]);
     }
 

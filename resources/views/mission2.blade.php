@@ -86,7 +86,7 @@
                         @csrf
                         <div class="space-x-5" style="width: 100%; ">
                             <!--  a Strong Bold text -->
-                            <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 1</div>
+                            <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 2</div>
                             <!-- 4 normal text with an inline textboxes and small inline images on each row-->
                             <div class="inline-flex items-center space-x-5 text-xl text-center justify-evenly mt-2 text-[#FFF]">
                                 <p>How many squares are in the boxes ?</p>

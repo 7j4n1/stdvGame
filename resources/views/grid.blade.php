@@ -82,10 +82,12 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <form action="{{ route('grid2', ['Shapes', 'shapesNumber']) }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
+                    <form action="{{ route('grid2') }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
                         @csrf
                         <div class="space-x-5" style="width: 100%; ">
                             <!--  a Strong Bold text -->
+                            <input type="hidden" name="Shapes" value="{{ json_encode($Shapes) }}">
+                            <input type="hidden" name="shapesNumber" value="{{ json_encode($shapesNumber) }}">
                             <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 1</div>
                             <!-- 4 normal text with an inline textboxes and small inline images on each row-->
                             <div class="inline-flex items-center space-x-5 text-xl text-center justify-evenly mt-2 text-[#FFF]">
