@@ -93,30 +93,37 @@
                     <form action="{{ route('grid2') }}" method="get" class="w-[100%] h-[100%] flex items-center justify-center">
                         @csrf
                         <div class="space-x-5" style="width: 100%; ">
+                            <input type="hidden" name="Shapes" value="{{ json_encode($Shapes) }}">
+                            <input type="hidden" name="shapesNumber" value="{{ json_encode($shapesNumber) }}">
                             <!--  a Strong Bold text -->
                             <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 2</div>
                             <!--  a normal text -->
                             <div class="text-xl text-center mt-2 text-[#FFF]">Calculate the mean of the previous shapes</div>
                             <div class="text-l text-center mt-2 text-[#FFF]">(remember: mean in max of 2 d.p [e.g 0.00])</div>
                             <!-- 4 normal text with an inline textboxes and small inline images on each row-->
-                            <div class="inline-flex items-center space-x-3 text-xl text-center justify-evenly mt-2 text-[#FFF]">
-                                <input type="text" id="square" name="square" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                            <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
+                                <input type="text" id="square" name="square" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['square'] }}" style="border: 2px solid #FFF; background:none;" disabled>
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
-                                <input type="text" id="circle" name="circle" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                                <input type="text" id="circle" name="circle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['circle'] }}" style="border: 2px solid #FFF; background:none;" disabled>
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
-                                <input type="text" id="triangle" name="triangle" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                                <input type="text" id="triangle" name="triangle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['triangle'] }}" style="border: 2px solid #FFF; background:none;" disabled>
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
-                                <input type="text" id="star" name="star" class="w-10 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="total" name="total" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;" disabled>
-                            </div>
-                            <hr style="width: 85%; border: 2px solid #fff" />
-                            <div class="inline-flex items-center space-x-5 justify-center text-xl justify-evenly text-center mt-2 text-[#FFF]">
+                                <input type="text" id="star" name="star" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['star'] }}" style="border: 2px solid #FFF; background:none;" disabled>
                                 
                             </div>
+                            <div class="inline-flex items-center space-x-3 w-[100%]">
+                                <hr style="width: 65%; border: 2px solid #fff" />
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
+                                <input type="text" id="mean" name="mean" class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF; background:none;">
+                            </div>
+                            <div class="inline-flex items-center space-x-5 justify-center text-xl justify-evenly text-center text-[#FFF] ml-30" style="margin-left: 8em; margin-right: 8em;">
+                                <label class="w-20 h-10 rounded text-center" style="border: 2px solid #FFF;">4</label>
+                            </div>
                             <!-- submit button -->
-                            <div class="flex justify-center mt-10 mb-5">
+                            <div class="inline-flex items-center justify-center mt-10 mb-5 w-[100%]">
                                 <button class="yellow text-black w-[30%] py-2 px-8 rounded-full font-bold" id="btnSubmit" type="submit">Submit</button>
+                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="squareImg" height="16" width="16" style="object-fit: cover;">
+                                <img src="{{ url('/images/grids/miss.svg') }}" id="squareImg2" height="16" width="16" style="object-fit: cover;">
                             </div>
                         </div>
                     </form>
@@ -176,90 +183,44 @@
         document.getElementById("btnSubmit").classList.remove("yellow");
 
 
-        // By default the tick images are hidden
+        // // By default the tick images are hidden
         document.getElementById("squareImg").style.display = "none";
-        document.getElementById("circleImg").style.display = "none";
-        document.getElementById("triangleImg").style.display = "none";
-        document.getElementById("starImg").style.display = "none";
+        // document.getElementById("circleImg").style.display = "none";
+        // document.getElementById("triangleImg").style.display = "none";
+        // document.getElementById("starImg").style.display = "none";
 
         document.getElementById("squareImg2").style.display = "none";
-        document.getElementById("circleImg2").style.display = "none";
-        document.getElementById("triangleImg2").style.display = "none";
-        document.getElementById("starImg2").style.display = "none";
+        // document.getElementById("circleImg2").style.display = "none";
+        // document.getElementById("triangleImg2").style.display = "none";
+        // document.getElementById("starImg2").style.display = "none";
 
         // Get the input field
-        var square = document.getElementById("square");
-        // input focus on the square input field
-        square.focus();
-        var circle = document.getElementById("circle");
-        var triangle = document.getElementById("triangle");
-        var star = document.getElementById("star");
+        var mean = document.getElementById("mean");
+        // input focus on the mean input field
+        mean.focus();
 
         var circleNum = <?php echo $shapesNumber['circle']; ?>;
         var squareNum = <?php echo $shapesNumber['square']; ?>;
         var triangleNum = <?php echo $shapesNumber['triangle']; ?>;
         var starNum = <?php echo $shapesNumber['star']; ?>;
 
+        var total_mean = (circleNum + squareNum + triangleNum + starNum ) / 4;
+        console.log("Mean: " + total_mean);
+
         // When all the input fields are filled and the values were correct, enable the submit button
-        square.addEventListener("input", function(){
-            if(square.value == squareNum){
+        mean.addEventListener("input", function(){
+            console.log(mean.value == total_mean);
+            if (mean.value == total_mean) {
                 document.getElementById("squareImg").style.display = "inline-flex";
                 document.getElementById("squareImg2").style.display = "none";
-            }else {
-                document.getElementById("squareImg2").style.display = "inline-flex";
-                document.getElementById("squareImg").style.display = "none";
-            }
-            if (square.value == squareNum && circle.value == circleNum && triangle.value == triangleNum && star.value == starNum) {
+
                 //apply tailwindcss class to the submit button when enabled to change the background color
                 document.getElementById("btnSubmit").classList.add("yellow");
                 document.getElementById("btnSubmit").classList.remove("disabled");
                 document.getElementById("btnSubmit").disabled = false;
-
-            }
-        });
-        circle.addEventListener("input", function(){
-            if (circle.value == circleNum) {
-                document.getElementById("circleImg").style.display = "inline-flex";
-                document.getElementById("circleImg2").style.display = "none";
             }else {
-                document.getElementById("circleImg2").style.display = "inline-flex";
-                document.getElementById("circleImg").style.display = "none";
-            }
-            if (square.value == squareNum && circle.value == circleNum && triangle.value == triangleNum && star.value == starNum) {
-                // document.getElementById("circleImg").style.display = "inline-flex";
-                document.getElementById("btnSubmit").classList.add("yellow");
-                document.getElementById("btnSubmit").classList.remove("disabled");
-                document.getElementById("btnSubmit").disabled = false;
-            }
-        });
-        triangle.addEventListener("input", function(){
-            if (triangle.value == triangleNum) {
-                document.getElementById("triangleImg").style.display = "inline-flex";
-                document.getElementById("triangleImg2").style.display = "none";
-            }else {
-                document.getElementById("triangleImg2").style.display = "inline-flex";
-                document.getElementById("triangleImg").style.display = "none";
-            }
-            if (square.value == squareNum && circle.value == circleNum && triangle.value == triangleNum && star.value == starNum) {
-                // document.getElementById("triangleImg").style.display = "inline-flex";
-                document.getElementById("btnSubmit").classList.add("yellow");
-                document.getElementById("btnSubmit").classList.remove("disabled");
-                document.getElementById("btnSubmit").disabled = false;
-            }
-        });
-        star.addEventListener("input", function(){
-            if (star.value == starNum) {
-                document.getElementById("starImg").style.display = "inline-flex";
-                document.getElementById("starImg2").style.display = "none";
-            }else {
-                document.getElementById("starImg2").style.display = "inline-flex";
-                document.getElementById("starImg").style.display = "none";
-            }
-            if (square.value == squareNum && circle.value == circleNum && triangle.value == triangleNum && star.value == starNum) {
-                // document.getElementById("starImg").style.display = "inline-flex";
-                document.getElementById("btnSubmit").classList.add("yellow");
-                document.getElementById("btnSubmit").classList.remove("disabled");
-                document.getElementById("btnSubmit").disabled = false;
+                document.getElementById("squareImg2").style.display = "inline-flex";
+                document.getElementById("squareImg").style.display = "none";
             }
         });
 
