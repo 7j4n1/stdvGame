@@ -30,6 +30,14 @@ class GridController extends Controller
         return view('mission2', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes]);
     }
 
+    public function mission3(Request $request)
+    {
+        Session::put('shapesNumber', $request->shapesNumber);
+        $shapesNumber = json_decode($request->shapesNumber, true);
+        $Shapes = json_decode($request->Shapes, true);
+        return view('mission3', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes, 'mean' => $request->mean]);
+    }
+
     private function generateShapes(){
         
         $totalSum = 42;

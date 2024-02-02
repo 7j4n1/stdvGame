@@ -28,7 +28,7 @@ Route::post('/start-game/44ee65052d63ffa2a11e917c6327ca91', [GridController::cla
 Route::get('/start-game/44ee65052d63ffa2a11e917c6327ca91', function() {
     return redirect()->route('grid');
 });
-// Route::get('/b574fcd56d2c08e700c5c9db33a1c58c', [GridController::class, 'index'])->name('grid3');
+Route::post('/start-game/b574fcd56d2c08e700c5c9db33a1c58c', [GridController::class, 'mission3'])->name('grid3');
 // Route::get('/facbf3e5cdf97590c4edb177b4148405', [GridController::class, 'index'])->name('grid4');
 // Route::get('/d07fe97541d6da8e4ee3368c9c782bf6', [GridController::class, 'index'])->name('grid5');
 // Route::get('/8274281b6f909119ad5eb0fbf2b25f22', [GridController::class, 'index'])->name('grid6');
