@@ -260,7 +260,7 @@
                 document.getElementById("circleImg").style.display = "none";
             }
 
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
+            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_4) {
                 //apply tailwindcss class to the submit button when enabled to change the background color
                 document.getElementById("btnSubmit").classList.add("yellow");
                 document.getElementById("btnSubmit").classList.remove("disabled");
@@ -283,7 +283,7 @@
                 document.getElementById("triangleImg").style.display = "none";
             }
 
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
+            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_4) {
                 //apply tailwindcss class to the submit button when enabled to change the background color
                 document.getElementById("btnSubmit").classList.add("yellow");
                 document.getElementById("btnSubmit").classList.remove("disabled");
@@ -306,7 +306,7 @@
                 document.getElementById("squareImg").style.display = "none";
             }
 
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
+            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_4) {
                 //apply tailwindcss class to the submit button when enabled to change the background color
                 document.getElementById("btnSubmit").classList.add("yellow");
                 document.getElementById("btnSubmit").classList.remove("disabled");
@@ -328,7 +328,7 @@
                 document.getElementById("starImg").style.display = "none";
             }
 
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
+            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_4) {
                 //apply tailwindcss class to the submit button when enabled to change the background color
                 document.getElementById("btnSubmit").classList.add("yellow");
                 document.getElementById("btnSubmit").classList.remove("disabled");
