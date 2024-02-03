@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StdvGame - Mission</title>
+    <title>StdvGame - Mission 4</title>
     <link href="{{ url('css/tailwind.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lekton' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
@@ -90,60 +90,40 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <form action="{{ route('grid4') }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
+                    <form action="{{ route('grid6') }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
                         @csrf
                         <div class="space-x-5" style="width: 100%; ">
                             <input type="hidden" name="Shapes" value="{{ json_encode($Shapes) }}">
                             <input type="hidden" name="shapesNumber" value="{{ json_encode($shapesNumber) }}">
+                            <input type="hidden" name="meanDiff" value="{{ json_encode($meanDiff) }}">
+                            <input type="hidden" name="mean" value="{{ $mean }}">
+                            <input type="hidden" name="sqrDiff" value="{{ json_encode($sqrDiff) }}">
                             <!--  a Strong Bold text -->
-                            <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 3</div>
+                            <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 5</div>
                             <!--  a normal text -->
-                            <div class="text-xl text-center mt-2 text-[#FFF]">Calculate the mean differences</div>
-                            <div class="text-l text-center mt-2 text-[#FFF]">(remember: subtract the mean you got from the previous mission)</div>
+                            <div class="text-xl text-center mt-2 text-[#FFF]">Do you remember how you solved the first question, </div>
+                            <div class="text-l text-center mt-2 text-[#FFF]">you’ll be doing that soon again, but find the total of the square differences</div>
                             <!-- 4 normal text with an inline textboxes and small inline images on each row-->
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
-                                <img src="{{ url('/images/grids/ellip.png') }}" height="32" width="32" style="object-fit: cover;">
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="circle" name="circle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['circle'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean1" name="mean1" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff1" name="diff1" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
-                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="circleImg" height="16" width="16" style="object-fit: cover;">
-                                <img src="{{ url('/images/grids/miss.svg') }}" id="circleImg2" height="16" width="16" style="object-fit: cover;">
+                                <input type="text" id="sqrmeandiff1" name="meandiff1" class="w-20 h-10 rounded text-center" value="{{ $sqrDiff[0] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
+                                <input type="text" id="sqrmeandiff2" name="meandiff2" class="w-20 h-10 rounded text-center" value="{{ $sqrDiff[1] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
+                                <input type="text" id="sqrmeandiff3" name="meandiff3" class="w-20 h-10 rounded text-center" value="{{ $sqrDiff[2] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">+</h1>
+                                <input type="text" id="sqrmeandiff4" name="meandiff4" class="w-20 h-10 rounded text-center" value="{{ $sqrDiff[3] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                
                             </div>
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
-                                <img src="{{ url('/images/grids/poly.png') }}" height="32" width="32" style="object-fit: cover;">
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="triangle" name="triangle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['triangle'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean2" name="mean2" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff2" name="diff2" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
-                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="triangleImg" height="16" width="16" style="object-fit: cover;">
-                                <img src="{{ url('/images/grids/miss.svg') }}" id="triangleImg2" height="16" width="16" style="object-fit: cover;">
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"></h1>
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"></h1>
                             </div>
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
-                                <img src="{{ url('/images/grids/rect.png') }}" height="32" width="32" style="object-fit: cover;">
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">Total Sum</h1>
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="square" name="square" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['square'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean3" name="mean3" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff3" name="diff3" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
+                                <input type="text" id="totalSqrDiff" name="totalSqrDiff" class="w-40 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
                                 <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="squareImg" height="16" width="16" style="object-fit: cover;">
                                 <img src="{{ url('/images/grids/miss.svg') }}" id="squareImg2" height="16" width="16" style="object-fit: cover;">
-                            </div>
-                            <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
-                                <img src="{{ url('/images/grids/star.png') }}" height="32" width="32" style="object-fit: cover;">
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="star" name="star" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['star'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean4" name="mean4" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff4" name="diff4" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
-                                <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="starImg" height="16" width="16" style="object-fit: cover;">
-                                <img src="{{ url('/images/grids/miss.svg') }}" id="starImg2" height="16" width="16" style="object-fit: cover;">
                             </div>
                             <!-- submit button -->
                             <div class="inline-flex items-center justify-center mt-10 mb-5 w-[100%]">
@@ -209,133 +189,52 @@
 
         // // By default the tick images are hidden
         document.getElementById("squareImg").style.display = "none";
-        document.getElementById("circleImg").style.display = "none";
-        document.getElementById("triangleImg").style.display = "none";
-        document.getElementById("starImg").style.display = "none";
 
         document.getElementById("squareImg2").style.display = "none";
-        document.getElementById("circleImg2").style.display = "none";
-        document.getElementById("triangleImg2").style.display = "none";
-        document.getElementById("starImg2").style.display = "none";
 
         // Get the input field
-        var diff1 = document.getElementById("diff1");
-        var diff2 = document.getElementById("diff2");
-        var diff3 = document.getElementById("diff3");
-        var diff4 = document.getElementById("diff4");
+        var diff1 = document.getElementById("sqrmeandiff1");
+        var diff2 = document.getElementById("sqrmeandiff2");
+        var diff3 = document.getElementById("sqrmeandiff3");
+        var diff4 = document.getElementById("sqrmeandiff4");
+
+        var totalSqrDiff = document.getElementById("totalSqrDiff");
         // input focus on the mean input field
-        diff1.focus();
+        totalSqrDiff.focus();
 
         var circleNum = <?php echo $shapesNumber['circle']; ?>;
         var squareNum = <?php echo $shapesNumber['square']; ?>;
         var triangleNum = <?php echo $shapesNumber['triangle']; ?>;
         var starNum = <?php echo $shapesNumber['star']; ?>;
 
-        var total_mean = <?php echo $mean; ?>;
-
-        var diffmean_1 = circleNum - total_mean;
-        var diffmean_2 = triangleNum - total_mean;
-        var diffmean_3 = squareNum - total_mean;
-        var diffmean_4 = starNum - total_mean;
+        var total_meandiff = diff1.value + diff2.value + diff3.value + diff4.value;
 
 
-        console.log("Mean diff1: " + diffmean_1);
-        console.log("Mean diff2: " + diffmean_2);
-        console.log("Mean diff3: " + diffmean_3);
-        console.log("Mean diff4: " + diffmean_4);
+        console.log("Total Mean diff: " + total_meandiff);
 
         // When all the input fields are filled and the values were correct, enable the submit button
-        diff1.addEventListener("input", function(){
+        totalSqrDiff.addEventListener("input", function(){
             // console.log(mean.value == total_mean);
-            if (this.value == diffmean_1) {
-                document.getElementById("circleImg").style.display = "inline-flex";
-                document.getElementById("circleImg2").style.display = "none";
-            }else {
-                document.getElementById("circleImg2").style.display = "inline-flex";
-                document.getElementById("circleImg").style.display = "none";
-            }
-
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
-                //apply tailwindcss class to the submit button when enabled to change the background color
-                document.getElementById("btnSubmit").classList.add("yellow");
-                document.getElementById("btnSubmit").classList.remove("disabled");
-                document.getElementById("btnSubmit").disabled = false;
-
-            }else {
-                document.getElementById("btnSubmit").disabled = true;
-                // apply tailwindcss class to the submit button when disabled to change the background color
-                document.getElementById("btnSubmit").classList.add("disabled");
-                document.getElementById("btnSubmit").classList.remove("yellow");
-            }
-        });
-        diff2.addEventListener("input", function(){
-            // console.log(mean.value == total_mean);
-            if (this.value == diffmean_2) {
-                document.getElementById("triangleImg").style.display = "inline-flex";
-                document.getElementById("triangleImg2").style.display = "none";
-            }else {
-                document.getElementById("triangleImg2").style.display = "inline-flex";
-                document.getElementById("triangleImg").style.display = "none";
-            }
-
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
-                //apply tailwindcss class to the submit button when enabled to change the background color
-                document.getElementById("btnSubmit").classList.add("yellow");
-                document.getElementById("btnSubmit").classList.remove("disabled");
-                document.getElementById("btnSubmit").disabled = false;
-
-            }else {
-                document.getElementById("btnSubmit").disabled = true;
-                // apply tailwindcss class to the submit button when disabled to change the background color
-                document.getElementById("btnSubmit").classList.add("disabled");
-                document.getElementById("btnSubmit").classList.remove("yellow");
-            }
-        });
-        diff3.addEventListener("input", function(){
-            // console.log(mean.value == total_mean);
-            if (this.value == diffmean_3) {
+            if (this.value == total_meandiff) {
                 document.getElementById("squareImg").style.display = "inline-flex";
                 document.getElementById("squareImg2").style.display = "none";
+
+                //apply tailwindcss class to the submit button when enabled to change the background color
+                document.getElementById("btnSubmit").classList.add("yellow");
+                document.getElementById("btnSubmit").classList.remove("disabled");
+                document.getElementById("btnSubmit").disabled = false;
             }else {
                 document.getElementById("squareImg2").style.display = "inline-flex";
                 document.getElementById("squareImg").style.display = "none";
-            }
 
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
-                //apply tailwindcss class to the submit button when enabled to change the background color
-                document.getElementById("btnSubmit").classList.add("yellow");
-                document.getElementById("btnSubmit").classList.remove("disabled");
-                document.getElementById("btnSubmit").disabled = false;
-
-            }else {
                 document.getElementById("btnSubmit").disabled = true;
                 // apply tailwindcss class to the submit button when disabled to change the background color
                 document.getElementById("btnSubmit").classList.add("disabled");
                 document.getElementById("btnSubmit").classList.remove("yellow");
             }
-        });
-        diff4.addEventListener("input", function(){
-            if (this.value == diffmean_4) {
-                document.getElementById("starImg").style.display = "inline-flex";
-                document.getElementById("starImg2").style.display = "none";
-            }else {
-                document.getElementById("starImg2").style.display = "inline-flex";
-                document.getElementById("starImg").style.display = "none";
-            }
 
-            if (diff1.value == diffmean_1 && diff2.value == diffmean_2 && diff3.value == diffmean_3 && diff4.value == diffmean_3) {
-                //apply tailwindcss class to the submit button when enabled to change the background color
-                document.getElementById("btnSubmit").classList.add("yellow");
-                document.getElementById("btnSubmit").classList.remove("disabled");
-                document.getElementById("btnSubmit").disabled = false;
-
-            }else {
-                document.getElementById("btnSubmit").disabled = true;
-                // apply tailwindcss class to the submit button when disabled to change the background color
-                document.getElementById("btnSubmit").classList.add("disabled");
-                document.getElementById("btnSubmit").classList.remove("yellow");
-            }
         });
+        
 
 
         var counter = 80;

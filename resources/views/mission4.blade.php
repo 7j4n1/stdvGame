@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StdvGame - Mission</title>
+    <title>StdvGame - Mission 4</title>
     <link href="{{ url('css/tailwind.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lekton' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
@@ -90,58 +90,63 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <form action="{{ route('grid4') }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
+                    <form action="{{ route('grid5') }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
                         @csrf
                         <div class="space-x-5" style="width: 100%; ">
                             <input type="hidden" name="Shapes" value="{{ json_encode($Shapes) }}">
                             <input type="hidden" name="shapesNumber" value="{{ json_encode($shapesNumber) }}">
+                            <input type="hidden" name="meanDiff" value="{{ json_encode($meanDiff) }}">
+                            <input type="hidden" name="mean" value="{{ $mean }}">
                             <!--  a Strong Bold text -->
-                            <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 3</div>
+                            <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 4</div>
                             <!--  a normal text -->
-                            <div class="text-xl text-center mt-2 text-[#FFF]">Calculate the mean differences</div>
-                            <div class="text-l text-center mt-2 text-[#FFF]">(remember: subtract the mean you got from the previous mission)</div>
+                            <div class="text-xl text-center mt-2 text-[#FFF]">Calculate the mean square difference</div>
+                            <!-- <div class="text-l text-center mt-2 text-[#FFF]">(remember: subtract the mean you got from the previous mission)</div> -->
                             <!-- 4 normal text with an inline textboxes and small inline images on each row-->
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
                                 <img src="{{ url('/images/grids/ellip.png') }}" height="32" width="32" style="object-fit: cover;">
+                                <input type="text" id="meandiff1" name="meandiff1" class="w-20 h-10 rounded text-center" value="{{ $meanDiff[0] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                <!-- <input type="text" id="circle" name="circle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['circle'] }}" style="border: 2px solid #FFF; background:none;" disabled> -->
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"><sup>2</sup></h1>
+                                <!-- <input type="text" id="mean1" name="mean1" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled> -->
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="circle" name="circle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['circle'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean1" name="mean1" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff1" name="diff1" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
+                                <input type="text" id="sqrdiff1" name="sqrdiff1" class="w-30 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
                                 <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="circleImg" height="16" width="16" style="object-fit: cover;">
                                 <img src="{{ url('/images/grids/miss.svg') }}" id="circleImg2" height="16" width="16" style="object-fit: cover;">
                             </div>
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
                                 <img src="{{ url('/images/grids/poly.png') }}" height="32" width="32" style="object-fit: cover;">
+                                <!-- <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1> -->
+                                <input type="text" id="meandiff2" name="meandiff2" class="w-20 h-10 rounded text-center" value="{{ $meanDiff[1] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                <!-- <input type="text" id="triangle" name="triangle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['triangle'] }}" style="border: 2px solid #FFF; background:none;" disabled> -->
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"><sup>2</sup></h1>
+                                <!-- <input type="text" id="mean2" name="mean2" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled> -->
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="triangle" name="triangle" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['triangle'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean2" name="mean2" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff2" name="diff2" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
+                                <input type="text" id="sqrdiff2" name="sqrdiff2" class="w-30 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
                                 <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="triangleImg" height="16" width="16" style="object-fit: cover;">
                                 <img src="{{ url('/images/grids/miss.svg') }}" id="triangleImg2" height="16" width="16" style="object-fit: cover;">
                             </div>
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
                                 <img src="{{ url('/images/grids/rect.png') }}" height="32" width="32" style="object-fit: cover;">
+                                <!-- <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1> -->
+                                <input type="text" id="meandiff3" name="meandiff3" class="w-20 h-10 rounded text-center" value="{{ $meanDiff[2] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                <!-- <input type="text" id="square" name="square" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['square'] }}" style="border: 2px solid #FFF; background:none;" disabled> -->
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"><sup>2</sup></h1>
+                                <!-- <input type="text" id="mean3" name="mean3" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled> -->
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="square" name="square" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['square'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean3" name="mean3" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff3" name="diff3" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
+                                <input type="text" id="sqrdiff3" name="sqrdiff3" class="w-30 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
                                 <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="squareImg" height="16" width="16" style="object-fit: cover;">
                                 <img src="{{ url('/images/grids/miss.svg') }}" id="squareImg2" height="16" width="16" style="object-fit: cover;">
                             </div>
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
                                 <img src="{{ url('/images/grids/star.png') }}" height="32" width="32" style="object-fit: cover;">
+                                <!-- <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1> -->
+                                <input type="text" id="meandiff4" name="meandiff4" class="w-20 h-10 rounded text-center" value="{{ $meanDiff[3] }}" style="border: 2px solid #FFF; background:none;" disabled>
+                                <!-- <input type="text" id="star" name="star" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['star'] }}" style="border: 2px solid #FFF; background:none;" disabled> -->
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"><sup>2</sup></h1>
+                                <!-- <input type="text" id="meandiff4" name="meandiff4" class="w-20 h-10 rounded text-center" value="{{ $meanDiff[3] }}" style="border: 2px solid #FFF; background:none;" disabled> -->
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="star" name="star" class="w-10 h-10 rounded text-center" value="{{ $shapesNumber['star'] }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">-</h1>
-                                <input type="text" id="mean4" name="mean4" class="w-20 h-10 rounded text-center" value="{{ $mean }}" style="border: 2px solid #FFF; background:none;" disabled>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">=</h1>
-                                <input type="text" id="diff4" name="diff4" class="w-20 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
+                                <input type="text" id="sqrdiff4" name="sqrdiff4" class="w-30 h-10 rounded text-center" value="" style="border: 2px solid #FFF; background:none;">
                                 <img src="{{ url('/images/grids/typcn_tick.svg') }}" id="starImg" height="16" width="16" style="object-fit: cover;">
                                 <img src="{{ url('/images/grids/miss.svg') }}" id="starImg2" height="16" width="16" style="object-fit: cover;">
                             </div>
@@ -219,10 +224,10 @@
         document.getElementById("starImg2").style.display = "none";
 
         // Get the input field
-        var diff1 = document.getElementById("diff1");
-        var diff2 = document.getElementById("diff2");
-        var diff3 = document.getElementById("diff3");
-        var diff4 = document.getElementById("diff4");
+        var diff1 = document.getElementById("sqrdiff1");
+        var diff2 = document.getElementById("sqrdiff2");
+        var diff3 = document.getElementById("sqrdiff3");
+        var diff4 = document.getElementById("sqrdiff4");
         // input focus on the mean input field
         diff1.focus();
 
@@ -233,10 +238,10 @@
 
         var total_mean = <?php echo $mean; ?>;
 
-        var diffmean_1 = circleNum - total_mean;
-        var diffmean_2 = triangleNum - total_mean;
-        var diffmean_3 = squareNum - total_mean;
-        var diffmean_4 = starNum - total_mean;
+        var diffmean_1 = (circleNum - total_mean) ** 2;
+        var diffmean_2 = (triangleNum - total_mean) ** 2;
+        var diffmean_3 = (squareNum - total_mean) ** 2;
+        var diffmean_4 = (starNum - total_mean) ** 2;
 
 
         console.log("Mean diff1: " + diffmean_1);

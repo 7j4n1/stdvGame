@@ -38,6 +38,44 @@ class GridController extends Controller
         return view('mission3', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes, 'mean' => $request->mean]);
     }
 
+    public function mission4(Request $request)
+    {
+        Session::put('shapesNumber', $request->shapesNumber);
+        $shapesNumber = json_decode($request->shapesNumber, true);
+        $Shapes = json_decode($request->Shapes, true);
+        $meanArray = [$request->diff3, $request->diff2, $request->diff3, $request->diff4];
+
+        return view('mission4', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes, 'mean' => $request->mean, 'meanDiff' => $meanArray]);
+    }
+
+    public function mission5(Request $request)
+    {
+        Session::put('shapesNumber', $request->shapesNumber);
+        $shapesNumber = json_decode($request->shapesNumber, true);
+        $Shapes = json_decode($request->Shapes, true);
+        $meansqr = [$request->sqrdiff1, $request->sqrdiff2, $request->sqrdiff3, $request->sqrdiff4];
+        $meanDiff = $request->meanDiff;
+
+
+        return view('mission5', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes, 'mean' => $request->mean, 'meanDiff' => $meanDiff, 'sqrDiff' => $meansqr]);
+    }
+
+    public function mission6(Request $request)
+    {
+        Session::put('shapesNumber', $request->shapesNumber);
+        $shapesNumber = json_decode($request->shapesNumber, true);
+        $Shapes = json_decode($request->Shapes, true);
+        // $meansqr = [$request->sqrdiff1, $request->sqrdiff2, $request->sqrdiff3, $request->sqrdiff4];
+        $meanDiff = $request->meanDiff;
+        $sqrDiff = $request->sqrDiff;
+        
+
+
+
+        return view('mission6', ['shapesNumber' => $shapesNumber, 'Shapes' => $Shapes, 'mean' => $request->mean, 'meanDiff' => $meanDiff, 'sqrDiff' => $sqrDiff,
+        'totalSqrDiff' => $request->totalSqrDiff]);
+    }
+
     private function generateShapes(){
         
         $totalSum = 42;
