@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StdvGame - Mission 4</title>
+    <title>StdvGame - Mission 5</title>
     <link href="{{ url('css/tailwind.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lekton' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
