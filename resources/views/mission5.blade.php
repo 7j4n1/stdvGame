@@ -207,7 +207,7 @@
         var triangleNum = <?php echo $shapesNumber['triangle']; ?>;
         var starNum = <?php echo $shapesNumber['star']; ?>;
 
-        var total_meandiff = diff1.value + diff2.value + diff3.value + diff4.value;
+        var total_meandiff = Number(diff1.value) + Number(diff2.value) + Number(diff3.value) + Number(diff4.value);
 
 
         console.log("Total Mean diff: " + total_meandiff);

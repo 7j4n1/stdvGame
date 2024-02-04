@@ -95,6 +95,7 @@
                         <div class="space-x-5" style="width: 100%; ">
                             <input type="hidden" name="Shapes" value="{{ json_encode($Shapes) }}">
                             <input type="hidden" name="shapesNumber" value="{{ json_encode($shapesNumber) }}">
+                            <input type="hidden" name="mean" value="{{ $mean }}">
                             <!--  a Strong Bold text -->
                             <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 3</div>
                             <!--  a normal text -->

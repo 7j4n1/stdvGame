@@ -110,14 +110,14 @@
                                 <input type="text" id="totalSqrDiff" name="totalSqrDiff" class="w-40 h-10 rounded text-center" value="{{ $totalSqrDiff }}" style="border: 2px solid #FFF; background:none;" disabled>
                                 
                             </div>
-                            <div class="inline-flex items-center space-x-3 text-xl text-center justify-center ml-10 text-[#FFF]">
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"></h1>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"></h1>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;">_____________</h1>
+                            <div class="inline-flex items-center space-x-3 text-xl text-center mt-1 justify-center ml-10 text-[#FFF]">
+                                <label class="w-20  rounded text-center" ></label>
+                                <label class="w-20  rounded text-center" ></label>
+                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;margin-top: -67px;">______</h1>
                             </div>
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"></h1>
-                                <h1 style="font-family: 'Nunito Sans'; font-size: 48px; line-height: 65.47px;"></h1>
+                                <label class="w-20 rounded text-center" ></label>
+                                <label class="w-20 rounded text-center" ></label>
                                 <label class="w-40 h-10 rounded text-center" style="border: 2px solid #FFF;">4</label>
                             </div>
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
