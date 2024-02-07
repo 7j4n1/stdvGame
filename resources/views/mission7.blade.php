@@ -89,8 +89,8 @@
             <div class="w-[40%] mr-auto"  style="border: 2px solid #9237E3; background:none;">
                 <div class="flex h-[100%]">
                     <!-- Generate a large div box container without any content -->
-                    <form action="{{ route('grid7') }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
-                        @csrf
+                    <!-- <form action="{{ route('grid7') }}" method="post" class="w-[100%] h-[100%] flex items-center justify-center">
+                        @csrf -->
                         <div class="space-x-5" style="width: 100%; ">
                             <input type="hidden" name="Shapes" value="{{ json_encode($Shapes) }}">
                             <input type="hidden" name="shapesNumber" value="{{ json_encode($shapesNumber) }}">
@@ -101,7 +101,7 @@
                             <div class="text-3xl font-bold text-center mt-2 text-[#FFFF00]">Mission 7</div>
                             <!--  a normal text -->
                             <div class="text-xl text-center mt-2 text-[#FFF]">You're almost there! For standard deviation.</div>
-                            <div class="text-l text-center mt-2 text-[#FFF]">All you need is to calculate the squared root of the variance. </div>
+                            <div class="text-l text-center mt-2 text-[#FFF]">All you need is to calculate the squared root of the variance. (Max. 2 d.p)</div>
                             <!-- 4 normal text with an inline textboxes and small inline images on each row-->
                             <div class="inline-flex items-center space-x-3 text-xl text-center justify-center mt-2 ml-10 text-[#FFF]">
                                 <h1 style="font-family: 'Nunito Sans'; font-size: 36px; line-height: 65.47px;">S.D</h1>
@@ -127,7 +127,7 @@
                                 <button class="yellow text-black w-[30%] py-2 px-8 rounded-full font-bold" id="btnSubmit" type="submit">Submit</button>
                             </div>
                         </div>
-                    </form>
+                    <!-- </form> -->
                 </div>
             </div>
         </div>
@@ -196,7 +196,7 @@
         // input focus on the mean input field
         sd.focus();
 
-        var sdTotal =  Math.sqrt(variance);
+        var sdTotal =  Math.sqrt(variance).toFixed(2);
 
 
         console.log("S.D: " + sdTotal);
