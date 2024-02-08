@@ -124,7 +124,7 @@
                             </div>
                             <!-- submit button -->
                             <div class="inline-flex items-center justify-center mt-10 mb-5 w-[100%]">
-                                <button class="yellow text-black w-[30%] py-2 px-8 rounded-full font-bold" id="btnSubmit" type="submit">Submit</button>
+                                <button class="yellow text-black w-[30%] py-2 px-8 rounded-full font-bold" id="btnSubmit" type="button">Submit</button>
                             </div>
                         </div>
                     <!-- </form> -->
@@ -176,6 +176,50 @@
         </div>
     </div>
 
+
+    <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="modal1">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+        
+            <!-- This element is to trick the browser into centering the modal contents. -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        
+            <div class="inline-block text-center align-bottom bg-[#131313] rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle h-[50%]">
+                <div class="bg-[#131313] px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <!-- <div class="sm:flex sm:items-start"> -->
+                        <!-- <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"> -->
+                            <!-- image -->
+                            <img src="{{ url('/images/congrats.png') }}" class="h-[100px] w-[200px] mx-auto mb-5" alt="Congratulations">
+                            <h3 class="text-2xl leading-6 font-medium text-[#FF0]" id="modalTitle">
+                                HURRAY !!!, YOU WON
+                            </h3>
+                            <div class="mt-2">
+                                <!-- <p class="text-sm text-gray-500">
+                                    You ran out of time, please try again.
+                                </p>
+                                <p class="text-sm text-gray-500">
+                                    Kindly remember that you have only 80 seconds to complete each mission.
+                                </p> -->
+                            </div>
+
+                        <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+                <div class="bg-[#131313] px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse align-center">
+                    <!-- <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#FF0] text-base font-medium text-black hover:bg-[#FF0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF0] sm:ml-3 sm:w-auto sm:text-sm">
+                        Launch Game
+                    </button> -->
+                    <a href="{{ route('grid') }}" class="w-fit inline-flex justify-center items-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#FF0] text-base font-medium text-black hover:bg-[#FF0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF0] sm:ml-3 sm:w-auto sm:text-sm">Play Again</a>
+                    <a href="{{ route('menu') }}" class="mt-3 w-[30px] inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-[#FF0] text-base font-medium text-black hover:bg-[#FF0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF0] sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script>
         // By defaukt the submit button is disabled
         document.getElementById("btnSubmit").disabled = true;
@@ -200,6 +244,8 @@
 
 
         console.log("S.D: " + sdTotal);
+
+        var subBtn = document.getElementById("btnSubmit");
 
         // When all the input fields are filled and the values were correct, enable the submit button
         sd.addEventListener("input", function(){
@@ -237,6 +283,13 @@
                 clearInterval(interval);
             }
         }, 1000);
+
+        subBtn.addEventListener("click", function () {
+           if (sd.value == sdTotal) {
+                document.getElementById("modal1").classList.remove("hidden");
+                clearInterval(interval);
+           } 
+        });
     </script>
 </body>
 </html>
