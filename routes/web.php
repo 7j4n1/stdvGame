@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GridController;
+use App\Http\Controllers\WorkSheetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,4 @@ Route::post('/start-game/facbf3e5cdf97590c4edb177b4148405', [GridController::cla
 Route::post('/start-game/d07fe97541d6da8e4ee3368c9c782bf6', [GridController::class, 'mission5'])->name('grid5');
 Route::post('/start-game/8274281b6f909119ad5eb0fbf2b25f22', [GridController::class, 'mission6'])->name('grid6');
 Route::post('/start-game/8405ccfb0eb4fe8fe977b1f86179407e', [GridController::class, 'mission7'])->name('grid7');
+Route::get('/worksheet-show/{r}/{c}/{t}/{s}', [WorkSheetController::class,'index'])->name('worksheet');
